@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(obj, destName, altNames) {
     if(!obj || !destName || !altNames || !Array.isArray(altNames)) {
         return obj;

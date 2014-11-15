@@ -4,6 +4,8 @@ var testConfig = require('../../config'),
     XL = require('../../../lib');
 
 describe('domid', function() {
+    'use strict';
+
     var xl;
 
     before(function() {

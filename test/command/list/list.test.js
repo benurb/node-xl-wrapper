@@ -4,6 +4,8 @@ var testConfig = require('../../config'),
     XL = require('../../../lib');
 
 describe('list', function () {
+    'use strict';
+
     var xl;
 
     before(function () {
