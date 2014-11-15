@@ -26,18 +26,22 @@ _The sie that is running Xen and xl_
 ## API documentation
 ### <a name="api-constructor">Constructor</a>
 `new XL(options)`
+
 Options must at least contain the property `executorName` which can currently be set to `local` to execute the commands
 on the local machine (via `child_process.spawn()`) or `ssh` to execute the commands on a remote machine via a SSH
 connection (done by [ssh2](https://github.com/mscdex/ssh2)
 
 ## <a name="security">Security recommendations</a>
 First of all: **Never ever use the root user to run this lib in production!**
+
 As you can see it supports using the `sudo` command when configured via the [constructor options](#api-constructor).
 To use this you have to create a new user, let's call him `xlrunner`. Then edit the `/etc/sudoers` file using the command
 `visudo` and append this line (of course change the username if you created another user):
+
 ```
 xlrunner      ALL=NOPASSWD:   /usr/sbin/xl
 ```
+
 Your new user should now have the permission to execute the xl command with prefixed sudo and arbitrary arguments.
 You may restrict these arguments for your use case. There are
 [plenty how-tos](http://www.atrixnet.com/allow-an-unprivileged-user-to-run-a-certain-command-with-sudo/) out there to
