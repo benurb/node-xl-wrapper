@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(obj, destName, altNames) {
-    if(!obj || !destName || !altNames || !Array.isArray(altNames)) {
+module.exports = function (obj, destName, altNames) {
+    if (!obj || !destName || !altNames || !Array.isArray(altNames)) {
         return obj;
     }
 
@@ -10,7 +10,7 @@ module.exports = function(obj, destName, altNames) {
             return obj;
         }
 
-        if(obj[altNames[i]]) {
+        if (obj[altNames[i]]) {
             obj[destName] = obj[altNames[i]];
         }
     }
