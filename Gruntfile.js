@@ -8,9 +8,9 @@ module.exports = function(grunt) {
             'test': {
                 'options': {
                     'reporter': 'spec'
-                }
-            },
-            'src': ['test/**/*.test.js']
+                },
+                'src': ['test/**/*.test.js']
+            }
         }
     });
 
