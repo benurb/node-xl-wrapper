@@ -33,7 +33,7 @@ connection (done by [ssh2](https://github.com/mscdex/ssh2)).
 
 Supported properties:
 
-- `executorName` (String) - Name of the executor to use for executing xl commands (`local` or `ssh`)
+- `executorName` (String) - __Required:__ Name of the executor to use for executing xl commands (`local` or `ssh`)
 - `executorOptions` (Object) - See below for a detailed explanation
 - `filter` (String | RegExp) _default: .*_ - This can optionally be used to restrict a session to specific DomU names.
 All commands only work if the accessed DomU's name matches the string (strictly) or the RegExp (`test()`). Other commands
@@ -60,7 +60,70 @@ each command execution individually. This leads to a massive overhead.
 
 Specific options for the executor `local` are:
 
-None :smile:
+- none :smile:
+
+### Commands
+To execute a command you have to instantiate XL and call the command you like.
+Example:
+
+```javascript
+var XL = require('node-xl-wrapper');
+var con = new XL({
+    'executorName': 'local'
+});
+con.shutdown({
+    'name': 'myDomU'
+}, function(err, data) {
+    // Do what you want with the returned data
+    // Data is generally the stdout string of the xl command or a object (e.g. for list)
+});
+```
+
+You can omit the first parameter (`options` object) if the command has no options or you don't want to pass any.
+
+The commands are named after their corresponding xl commands. Currently these are supported:
+
+#### domid
+Options:
+
+- `name` (String - alternative `domName`, `domainName`) - __Required:__ The name of the DomU, whose id you want to know
+
+Return value:
+
+- (Number) id of the DomU
+
+#### domname
+Options:
+
+- `id` (String - alternative `domId`, `domainId`) - __Required:__ The id of the DomU, whose name you want to know
+
+Return value:
+
+- (String) name of the DomU
+
+#### list
+Options:
+
+- none
+
+Return value:
+
+- (Object) Output of `xl list -l`. It's a bit strange structure, but you will get used to it :smile:
+
+#### shutdown
+Options:
+
+- `name` (String - alternative `domName`, `domainName`) - __Required:__ The name of the DomU to shutdown
+(use this __or__ `id`, not both)
+- `id` (String - alternative `domId`, `domainId`) - __Required:__ The id of the DomU to shutdown
+(use this __or__ `name`, not both)
+- `all` (Boolean) - Shuts down all VMs on this Xen host. This will only work if the granted filter from the constructor
+matches all running VMs (checked first via the list command). If you set this to true you can omit the required `name`
+and `id` property.
+
+Return value:
+
+- (String) Output of `xl shutdown`
 
 
 ## <a name="security">Security recommendations</a>
