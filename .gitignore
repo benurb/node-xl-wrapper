@@ -33,3 +33,6 @@ node_modules
 # Eclipse Metadata
 /.project
 /.settings
+
+# Code Coverage data
+/coverage
