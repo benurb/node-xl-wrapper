@@ -1,8 +1,9 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     'use strict';
 
     // Load tasks
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-mocha-test');
 
     // Config
@@ -22,9 +23,17 @@ module.exports = function(grunt) {
             'all': {
                 'src': ['lib/**/*.js', 'test/**/*.js', 'util/**/*.js', '*.js']
             }
+        },
+        'jscs': {
+            'options': {
+                'config': true
+            },
+            'all': {
+                'src': ['lib/**/*.js', 'test/**/*.js', 'util/**/*.js', '*.js']
+            }
         }
     });
 
     // Tasks
-    grunt.registerTask('test', 'mochaTest');
+    grunt.registerTask('test', ['mochaTest:test', 'jshint:all', 'jscs:all']);
 };
