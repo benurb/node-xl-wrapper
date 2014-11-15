@@ -1,26 +1,26 @@
 {
-  "name": "node-xl-wrapper",
-  "version": "0.0.0",
-  "description": "Node.js wrapper around local or remote XEN xl management utility",
+    "name": "node-xl-wrapper",
+    "version": "0.0.0",
+    "description": "Node.js wrapper around local or remote XEN xl management utility",
     "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/benurb/node-xl-wrapper.git"
-  },
-  "keywords": [
-    "XEN",
-    "xl",
-    "ssh",
-    "manage VMs"
-  ],
-  "author": "Benjamin Urban <contact@benjaminurban.de>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/benurb/node-xl-wrapper/issues"
-  },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/benurb/node-xl-wrapper.git"
+    },
+    "keywords": [
+        "XEN",
+        "xl",
+        "ssh",
+        "manage VMs"
+    ],
+    "author": "Benjamin Urban <contact@benjaminurban.de>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/benurb/node-xl-wrapper/issues"
+    },
     "homepage": "https://github.com/benurb/node-xl-wrapper",
     "dependencies": {
         "ssh2": "^0.3.6"
