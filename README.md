@@ -1,8 +1,9 @@
 # node-xl-wrapper
 
-![Travis Build Status](https://travis-ci.org/benurb/node-xl-wrapper.svg?branch=master)
-![Dependency Status](https://david-dm.org/benurb/node-xl-wrapper/status.svg)
-![Dev Dependency Status](https://david-dm.org/benurb/node-xl-wrapper/dev-status.svg)
+[![Build Status](https://travis-ci.org/benurb/node-xl-wrapper.svg?branch=master)](https://travis-ci.org/benurb/node-xl-wrapper)
+[![Dependency Status](https://david-dm.org/benurb/node-xl-wrapper.svg)](https://david-dm.org/benurb/node-xl-wrapper)
+[![devDependency Status](https://david-dm.org/benurb/node-xl-wrapper/dev-status.svg)](https://david-dm.org/benurb/node-xl-wrapper#info=devDependencies)
+[![codecov.io](https://codecov.io/github/benurb/node-xl-wrapper/coverage.svg?branch=master)](https://codecov.io/github/benurb/node-xl-wrapper?branch=master)
 
 Node.js wrapper around local or remote Xen xl management utility
 
