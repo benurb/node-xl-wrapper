@@ -2,7 +2,9 @@ var expect = require('chai').expect,
     XL = require('../../lib');
 
 describe('XL', function () {
-    it('should succeed if executorName is defined, but not executorOptions', function() {
+    'use strict';
+
+    it('should succeed if executorName is defined, but not executorOptions', function () {
         var xl = new XL({
             'executorName': 'dummy'
         });
@@ -10,7 +12,7 @@ describe('XL', function () {
         expect(xl).to.be.an.instanceof(XL);
     });
 
-    it('should not filter if no filter is defined', function() {
+    it('should not filter if no filter is defined', function () {
         var xl = new XL({
             'executorName': 'dummy'
         });
@@ -21,7 +23,7 @@ describe('XL', function () {
         expect(xl.filter('yourvm')).to.eql(true);
     });
 
-    it('should apply string filter correctly', function() {
+    it('should apply string filter correctly', function () {
         var xl = new XL({
             'executorName': 'dummy',
             'filter': 'myvm'
@@ -33,7 +35,7 @@ describe('XL', function () {
         expect(xl.filter('yourvm')).to.eql(false);
     });
 
-    it('should use configFileTemplate if defined', function() {
+    it('should use configFileTemplate if defined', function () {
         var tpl = '/etc/tpl/{{name}}.cfg';
         var xl = new XL({
             'executorName': 'dummy',
@@ -44,25 +46,31 @@ describe('XL', function () {
         expect(xl.configFileTemplate).to.eql(tpl);
     });
 
-    it('should fail if options are missing', function() {
+    it('should fail if options are missing', function () {
         expect(function () {
-            new XL();
+            var xl = new XL();
+            // Prevent jshint warnings
+            xl = xl;
         }).to.throw('without executor');
     });
 
-    it('should fail if executorName property is missing in options', function() {
+    it('should fail if executorName property is missing in options', function () {
         expect(function () {
-            new XL({
+            var xl = new XL({
                 'name': 'dummy'
             });
+            // Prevent jshint warnings
+            xl = xl;
         }).to.throw('without executor');
     });
 
-    it('should fail if executor does not exist', function() {
+    it('should fail if executor does not exist', function () {
         expect(function () {
-            new XL({
+            var xl = new XL({
                 'executorName': 'dummy-fail'
             });
+            // Prevent jshint warnings
+            xl = xl;
         }).to.throw('Cannot find executor');
     });
 });

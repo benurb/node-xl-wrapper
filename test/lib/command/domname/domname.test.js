@@ -96,8 +96,8 @@ describe('domid', function () {
     });
 
     it('should throw error when invoking without callback', function () {
-        expect(function() {
-            xl.domname({})
+        expect(function () {
+            xl.domname({});
         }).to.throw('without callback');
     });
 
@@ -107,7 +107,7 @@ describe('domid', function () {
         }, function (err, data) {
             expect(err).to.be.an.instanceof(Error);
             expect(err.message).to.contain('not connect');
-            expect(data).to.be.undefined;
+            expect(data).to.be.undefined();
 
             done();
         });

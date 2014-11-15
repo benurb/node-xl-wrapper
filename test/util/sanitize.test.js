@@ -1,7 +1,9 @@
-var expect = require('chai').expect
+var expect = require('chai').expect,
     sanitize = require('../../util/sanitize');
 
 describe('sanitize', function () {
+    'use strict';
+
     describe('domName', function () {
         it('should not change a valid name', function () {
             var name = 'thisismyname12345';
@@ -21,7 +23,7 @@ describe('sanitize', function () {
         });
     });
 
-    describe('domId', function() {
+    describe('domId', function () {
         it('should accept an id as number', function () {
             expect(sanitize.domId(100)).to.eql(100);
         });
@@ -51,7 +53,9 @@ describe('sanitize', function () {
         });
 
         it('should reject an object', function () {
-            expect(sanitize.domId({'a': 100})).to.eql('');
+            expect(sanitize.domId({
+                'a': 100
+            })).to.eql('');
         });
 
         it('should reject an array with a string on top', function () {

@@ -58,7 +58,7 @@ describe('list', function () {
         xl.list({}, function (err, data) {
             expect(err).to.be.an.instanceof(Error);
             expect(err.message).to.contain('not found');
-            expect(data).to.be.undefined;
+            expect(data).to.be.undefined();
 
             done();
         });
@@ -72,7 +72,7 @@ describe('list', function () {
         xl.list({}, function (err, data) {
             expect(err).to.be.an.instanceof(Error);
             expect(err.message).to.contain('not connect');
-            expect(data).to.be.undefined;
+            expect(data).to.be.undefined();
 
             done();
         });
