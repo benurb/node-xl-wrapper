@@ -1,7 +1,7 @@
-var testConfig = require('../../config'),
+var testConfig = require('../../../config'),
     expect = require('chai').expect,
     path = require('path'),
-    XL = require('../../../lib');
+    XL = require('../../../../lib');
 
 describe('domid', function () {
     'use strict';
@@ -82,6 +82,33 @@ describe('domid', function () {
             expect(err).to.be.an.instanceof(Error);
             expect(err.message).to.contain('required property');
             expect(data).to.be.undefined();
+            done();
+        });
+    });
+
+    it('should fail when invoking without options', function (done) {
+        xl.domid(null, function (err, data) {
+            expect(err).to.be.an.instanceof(Error);
+            expect(err.message).to.contain('required property');
+            expect(data).to.be.undefined();
+            done();
+        });
+    });
+
+    it('should throw error when invoking without callback', function () {
+        expect(function() {
+            xl.domid({})
+        }).to.throw('without callback');
+    });
+
+    it('should fail if command execution fails', function (done) {
+        xl.domid({
+            'name': 'test-domU-error'
+        }, function (err, data) {
+            expect(err).to.be.an.instanceof(Error);
+            expect(err.message).to.contain('not connect');
+            expect(data).to.be.undefined;
+
             done();
         });
     });

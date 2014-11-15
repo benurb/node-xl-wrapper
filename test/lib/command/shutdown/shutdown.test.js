@@ -1,7 +1,7 @@
-var testConfig = require('../../config'),
+var testConfig = require('../../../config'),
     expect = require('chai').expect,
     path = require('path'),
-    XL = require('../../../lib');
+    XL = require('../../../../lib');
 
 describe('shutdown', function () {
     'use strict';

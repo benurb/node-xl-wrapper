@@ -5,10 +5,12 @@ module.exports = {
         return name.replace(/([^a-zA-Z0-9])/g, '\\$1'); // Escape any special characters - this is ok for bash
     },
     'domId': function (id) {
-        if (isNaN(id)) {
+        var numericId = parseInt(id, 10);
+
+        if (isNaN(numericId)) {
             return '';
         }
 
-        return parseInt(id, 10);
+        return numericId;
     }
 };

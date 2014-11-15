@@ -1,23 +1,14 @@
 module.exports = {
-    'domname 5': {
+    'domid test\\-domU': {
         'err': null,
         'data': {
             'code': 0,
             'signal': null,
             'stderr': '',
-            'stdout': 'test-domU'
+            'stdout': '5'
         }
     },
-    'domname 6': {
-        'err': null,
-        'data': {
-            'code': 0,
-            'signal': null,
-            'stderr': '',
-            'stdout': ''
-        }
-    },
-    'domname 7': {
+    'domid test\\-domU\\-notexists': {
         'err': null,
         'data': {
             'code': 0,
@@ -25,5 +16,9 @@ module.exports = {
             'stderr': 'Can\'t get domid of domain name \'test-domU-notexists\', maybe this domain does not exist.',
             'stdout': ''
         }
+    },
+    'domid test\\-domU\\-error': {
+        'err': new Error('Could not connect to dummy'),
+        'data': {}
     }
 };
