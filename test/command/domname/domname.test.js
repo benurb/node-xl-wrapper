@@ -13,7 +13,7 @@ describe('domid', function() {
 
     it('should return domid on valid request', function(done) {
         xl.domname({
-            'id': '5'
+            'id': 5
         }, function(err, data) {
             if(err) {
                 return done(err);
@@ -27,7 +27,7 @@ describe('domid', function() {
 
     it('should return domid on valid request and property domId', function(done) {
         xl.domname({
-            'domId': '5'
+            'domId': 5
         }, function(err, data) {
             if(err) {
                 return done(err);
@@ -41,7 +41,7 @@ describe('domid', function() {
 
     it('should return domid on valid request and property domainId', function(done) {
         xl.domname({
-            'domainId': '5'
+            'domainId': 5
         }, function(err, data) {
             if(err) {
                 return done(err);

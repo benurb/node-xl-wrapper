@@ -20,7 +20,7 @@ describe('domid', function() {
             }
 
             expect(err).to.be.null();
-            expect(data).to.eql('5');
+            expect(data).to.eql(5);
             done();
         });
     });
@@ -34,7 +34,7 @@ describe('domid', function() {
             }
 
             expect(err).to.be.null();
-            expect(data).to.eql('5');
+            expect(data).to.eql(5);
             done();
         });
     });
@@ -48,7 +48,7 @@ describe('domid', function() {
             }
 
             expect(err).to.be.null();
-            expect(data).to.eql('5');
+            expect(data).to.eql(5);
             done();
         });
     });
